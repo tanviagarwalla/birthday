@@ -34,36 +34,40 @@ class App extends Component {
 
   render() {
     return (
-      <div className="body" style={{height:'100vh'}}>
-        {/* Welcome message */}
-        {!this.state.ready && <Welcome handleClick={this.handleReady}/>}
-        {/* Video background */}
-        {this.state.ready && <video playsInline autoPlay muted loop id="bgvid" src={video}/>}
+      <div>
+        <Grid>
+          <Grid.Row only="computer tablet">
+          <div className="body" style={{height:'100vh', width:'100vw'}}>
+            {/* Welcome message */}
+            {!this.state.ready && <Welcome handleClick={this.handleReady}/>}
+            {/* Video background */}
+            {this.state.ready && <video playsInline autoPlay muted loop id="bgvid" src={video}/>}
 
-        {this.state.ready && <Grid columns="equal">
-          <Grid.Row centered>
-          {this.state.showIntro && <Intro index={this.state.introIndex} clickHandler={this.handleIntroClicks} />}
+            {this.state.ready && <Grid columns="equal">
+              <Grid.Row centered>
+              {this.state.showIntro && <Intro index={this.state.introIndex} clickHandler={this.handleIntroClicks} />}
+              </Grid.Row>
+              <Grid.Row>
+                <Grid.Column>
+                  {/* Nick Fury */}
+                  {this.state.ready && <div className="vov fade-in">
+                    <NickFury/>
+                    </div>}
+                </Grid.Column>
+                <Grid.Column>
+                  {this.state.showProgressBar && <div className="vov slide-in-up"><ProgressBar progress={this.state.progress}/></div>}
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>}
+          </div>
           </Grid.Row>
-          <Grid.Row>
-            <Grid.Column>
-              {/* Nick Fury */}
-              {this.state.ready && <div className="vov fade-in">
-                <NickFury/>
-                </div>}
-            </Grid.Column>
-            <Grid.Column>
-              {this.state.showProgressBar && <div className="vov slide-in-up"><ProgressBar progress={this.state.progress}/></div>}
-            </Grid.Column>
+        </Grid>
+        <Grid>
+          <Grid.Row only="mobile">
+            <h2 style={{margin: '20px'}}>This website is only meant to be used on computer screens. At worst, tablets</h2>
           </Grid.Row>
-        </Grid>}
-
-
-        
-        
-        
-        
-        
-      </div>     
+        </Grid>
+      </div>
     );
   }
 }
