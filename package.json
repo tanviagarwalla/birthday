@@ -9,7 +9,9 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.0"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -35,6 +37,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0"
+    "gh-pages": "^3.1.0",
+    "typed.js": "^2.0.11",
+    "typescript": "^4.0.3"
   }
 }

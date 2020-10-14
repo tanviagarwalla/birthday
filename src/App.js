@@ -1,26 +1,71 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import NickFury from './components/NickFury.jsx';
+import Welcome from './components/Welcome.jsx';
+import 'semantic-ui-css/semantic.min.css';
+import video from './media/Background_08.mov';
+import Intro from './components/Intro'
+import ProgressBar from './components/Progress'
+import { Grid } from 'semantic-ui-react'
+import './vov.min.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {ready: false, introIndex : 0, showProgressBar: false, progress: 0};
+  }
+  
+  handleReady = () => {
+    this.setState({ready: true});
+    this.setState({showIntro: true});
+  }
+
+  handleIntroClicks = () => {
+    let index = this.state.introIndex;
+    if( index === 2) {
+      this.setState({showProgressBar: true, progress: 50, introIndex: index + 1});
+    } else if (index === 4) {
+
+    } else {
+      this.setState({introIndex: index + 1});
+    }
+  }
+
+  render() {
+    return (
+      <div className="body" style={{height:'100vh'}}>
+        {/* Welcome message */}
+        {!this.state.ready && <Welcome handleClick={this.handleReady}/>}
+        {/* Video background */}
+        {this.state.ready && <video playsInline autoPlay muted loop id="bgvid" src={video}/>}
+
+        {this.state.ready && <Grid columns="equal">
+          <Grid.Row centered>
+          {this.state.showIntro && <Intro index={this.state.introIndex} clickHandler={this.handleIntroClicks} />}
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column>
+              {/* Nick Fury */}
+              {this.state.ready && <div className="vov fade-in">
+                <NickFury/>
+                </div>}
+            </Grid.Column>
+            <Grid.Column>
+              {this.state.showProgressBar && <div className="vov slide-in-up"><ProgressBar progress={this.state.progress}/></div>}
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>}
+
+
+        
+        
+        
+        
+        
+      </div>     
+    );
+  }
 }
 
 export default App;
