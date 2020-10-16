@@ -7,18 +7,19 @@ import video from './media/Background_08.mov';
 import Intro from './components/Intro'
 import ProgressBar from './components/Progress'
 import { Grid } from 'semantic-ui-react'
+import Challenge from './components/Challenge'
 import './vov.min.css';
+import Stats from './components/Stats'
 
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {ready: false, introIndex : 0, showProgressBar: false, progress: 0};
+    this.state = {ready: false, introIndex : 0, showProgressBar: false, progress: 0, showVideo: false, bgColor: 'white'};
   }
   
   handleReady = () => {
-    this.setState({ready: true});
-    this.setState({showIntro: true});
+    this.setState({ready: true, showIntro: true});
   }
 
   handleIntroClicks = () => {
@@ -26,33 +27,46 @@ class App extends Component {
     if( index === 2) {
       this.setState({showProgressBar: true, progress: 50, introIndex: index + 1});
     } else if (index === 4) {
-
+      this.setBackgroundColor('black');
+      this.setState({showIntro: false, progress: 0});
     } else {
       this.setState({introIndex: index + 1});
     }
+  }
+
+  setBackgroundColor = (color) => {
+    this.setState({bgColor: 'gradient1'});
   }
 
   render() {
     return (
       <div>
         <Grid>
-          <Grid.Row only="computer tablet">
-          <div className="body" style={{height:'100vh', width:'100vw'}}>
+          <Grid.Row only="computer tablet" className={this.state.bgColor}>
+          <div className="body">
             {/* Welcome message */}
             {!this.state.ready && <Welcome handleClick={this.handleReady}/>}
+
             {/* Video background */}
-            {this.state.ready && <video playsInline autoPlay muted loop id="bgvid" src={video}/>}
+            {this.state.showIntro && <video playsInline autoPlay muted loop id="bgvid" src={video}/>}
 
             {this.state.ready && <Grid columns="equal">
-              <Grid.Row centered>
-              {this.state.showIntro && <Intro index={this.state.introIndex} clickHandler={this.handleIntroClicks} />}
-              </Grid.Row>
+            {this.state.showIntro && <Grid.Row centered>
+                 <Intro index={this.state.introIndex} clickHandler={this.handleIntroClicks} />
+                
+              </Grid.Row>}
+              {!this.state.showIntro && <Grid.Row>
+                <Challenge />
+              </Grid.Row>}
               <Grid.Row>
+                {!this.state.showIntro && this.state.ready && <div className="stats-bar">
+                  <Stats/>
+                </div>}
                 <Grid.Column>
                   {/* Nick Fury */}
-                  {this.state.ready && <div className="vov fade-in">
-                    <NickFury/>
-                    </div>}
+                    <div className="vov fade-in">
+                      <NickFury/>
+                    </div>
                 </Grid.Column>
                 <Grid.Column>
                   {this.state.showProgressBar && <div className="vov slide-in-up"><ProgressBar progress={this.state.progress}/></div>}
@@ -64,7 +78,7 @@ class App extends Component {
         </Grid>
         <Grid>
           <Grid.Row only="mobile">
-            <h2 style={{margin: '20px'}}>This website is only meant to be used on computer screens. At worst, tablets</h2>
+            <h2 className="mobile">This website is only meant to be used on computer screens. At worst, tablets</h2>
           </Grid.Row>
         </Grid>
       </div>

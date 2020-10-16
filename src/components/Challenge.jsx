@@ -1,9 +1,10 @@
 import React from "react";
-import { Button } from 'semantic-ui-react'
+import { Button, Grid } from 'semantic-ui-react'
 import '../App.css';
 import '../vov.min.css';
+import Profile from './Profile.jsx'
 
-class Intro extends React.Component {
+class Challenge extends React.Component {
 
     constructor(props) {
         super(props);
@@ -20,17 +21,21 @@ class Intro extends React.Component {
     
     render() {
         return (
-            <div className="intro center vov fade-in">
-                <div className="intro-screen">
-                    <div className="intro-message">
-                        {this.state.messageList[this.props.index]}
-                    </div>
-                    <div> 
-                        <Button className="intro-button" basic color='green' onClick={this.props.clickHandler}>{this.state.buttonLabels[this.props.index]}</Button>
-                    </div>  
-                </div>
+            <div className="challenge-container vov fade-in" style={{width: '100%'}}>
+                <Grid>
+                    <Grid.Row columns="equal">
+                        <Grid.Column width={6}>
+                            <Profile></Profile>
+                        </Grid.Column>
+                        <Grid.Column width={10}>
+                            <div>
+                                hi
+                            </div>
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
             </div>
         );
     }
 }
-export default Intro;
+export default Challenge;

@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.body {
+  height: 100vh;
+  width: 100vw;
+}
+
 .welcome-buttons {
   margin: 40px;
 }
@@ -30,11 +35,14 @@ video {
 .ui.indicating.progress {
   background-color: white;
   border: grey 2px solid;
+  border-radius: 6px;
+  bottom: 2px;
+  right: 12px;
 }
 
 .progress-bar {
   position:relative;
-  padding: 35px;
+  padding: 50px;
 }
 
 .box {
@@ -53,4 +61,71 @@ video {
   0%   { transform: translateY(0); }
   50%  { transform: translateY(-30px); }
   100% { transform: translateY(0); }
+}
+
+.mobile {
+  margin: '20px';
+}
+
+.intro {
+  font-size: 25px;
+  height: 75vh;
+  position: relative;
+}
+
+.challenge-container {
+  height: 75vh;
+  position: relative;
+}
+
+.intro-screen {
+  background-color: black;
+  text-align: left;
+  color: green;
+  height: 400px;
+  width: 650px;
+  border: solid grey 10px;
+  border-radius: 25px;
+  padding: 40px;
+  opacity: 0.85;
+}
+
+.intro-button {
+  z-index:10;
+}
+
+.intro-message {
+  height: 80%;
+}
+
+.welcome-message {
+  font-size: 50px;
+  height: 100vh;
+}
+
+.gradient1 {
+  background: #0d1b2a;
+}
+
+.stats-bar {
+  position: fixed;
+  background-color: #778da9;
+  width: 95%;
+  height: 140px;
+  left: 2.5%;
+  border-radius: 12px;
+}
+
+.ui.statistics.stats:first-child {
+  margin-left: 30px;
+  margin-top: 35px;
+}
+
+.ui.card.profile-card:last-child {
+  margin-top: 40px;
+  margin-left: 80px;
+}
+
+.ui.card.profile-card>.content {
+  background: #E0E1DD;
 }

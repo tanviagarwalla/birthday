@@ -12,7 +12,7 @@ export default class ProgressBar extends Component {
   render() {
     return (
       <div className="progress-bar">
-        <Progress percent={this.props.progress} progress indicating size="large" />
+        <Progress percent={this.props.progress} progress indicating size="large"/>
       </div>
     )
   }

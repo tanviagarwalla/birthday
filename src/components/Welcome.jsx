@@ -22,8 +22,8 @@ componentWillUnmount() {
   
   render() {
     return (
-        <div className="wrap center" style={{fontSize: "50px", height: "100vh"}}>
-          <div className="type-wrap">
+        <div className="welcome-message center">
+          <div>
             <span
                 style={{ whiteSpace: 'pre' }}
                 ref={(el) => { this.el = el; }}
