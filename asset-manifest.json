@@ -1,28 +1,29 @@
 {
   "files": {
-    "main.css": "/birthday/static/css/main.2a3af42b.chunk.css",
-    "main.js": "/birthday/static/js/main.3fc8e386.chunk.js",
-    "main.js.map": "/birthday/static/js/main.3fc8e386.chunk.js.map",
+    "main.css": "/birthday/static/css/main.d5de3d71.chunk.css",
+    "main.js": "/birthday/static/js/main.065048f8.chunk.js",
+    "main.js.map": "/birthday/static/js/main.065048f8.chunk.js.map",
     "runtime-main.js": "/birthday/static/js/runtime-main.27fdd891.js",
     "runtime-main.js.map": "/birthday/static/js/runtime-main.27fdd891.js.map",
-    "static/css/2.aaadf60e.chunk.css": "/birthday/static/css/2.aaadf60e.chunk.css",
-    "static/js/2.331d072c.chunk.js": "/birthday/static/js/2.331d072c.chunk.js",
-    "static/js/2.331d072c.chunk.js.map": "/birthday/static/js/2.331d072c.chunk.js.map",
+    "static/css/2.be8acf4e.chunk.css": "/birthday/static/css/2.be8acf4e.chunk.css",
+    "static/js/2.5bb9cec0.chunk.js": "/birthday/static/js/2.5bb9cec0.chunk.js",
+    "static/js/2.5bb9cec0.chunk.js.map": "/birthday/static/js/2.5bb9cec0.chunk.js.map",
     "index.html": "/birthday/index.html",
-    "precache-manifest.76ea974ced18e3f34aa9230949f77edc.js": "/birthday/precache-manifest.76ea974ced18e3f34aa9230949f77edc.js",
+    "precache-manifest.f226373af30496b6f07a5ab40f46d3a4.js": "/birthday/precache-manifest.f226373af30496b6f07a5ab40f46d3a4.js",
     "service-worker.js": "/birthday/service-worker.js",
-    "static/css/2.aaadf60e.chunk.css.map": "/birthday/static/css/2.aaadf60e.chunk.css.map",
-    "static/css/main.2a3af42b.chunk.css.map": "/birthday/static/css/main.2a3af42b.chunk.css.map",
-    "static/js/2.331d072c.chunk.js.LICENSE.txt": "/birthday/static/js/2.331d072c.chunk.js.LICENSE.txt",
+    "static/css/2.be8acf4e.chunk.css.map": "/birthday/static/css/2.be8acf4e.chunk.css.map",
+    "static/css/main.d5de3d71.chunk.css.map": "/birthday/static/css/main.d5de3d71.chunk.css.map",
+    "static/js/2.5bb9cec0.chunk.js.LICENSE.txt": "/birthday/static/js/2.5bb9cec0.chunk.js.LICENSE.txt",
     "static/media/Background_08.mov": "/birthday/static/media/Background_08.d431923b.mov",
     "static/media/semantic.min.css": "/birthday/static/media/outline-icons.ef60a4f6.woff",
-    "static/media/nf.png": "/birthday/static/media/nf.cd5bfed7.png"
+    "static/media/nf.png": "/birthday/static/media/nf.cd5bfed7.png",
+    "static/media/profilepix.jpeg": "/birthday/static/media/profilepix.6ec8a67f.jpeg"
   },
   "entrypoints": [
     "static/js/runtime-main.27fdd891.js",
-    "static/css/2.aaadf60e.chunk.css",
-    "static/js/2.331d072c.chunk.js",
-    "static/css/main.2a3af42b.chunk.css",
-    "static/js/main.3fc8e386.chunk.js"
+    "static/css/2.be8acf4e.chunk.css",
+    "static/js/2.5bb9cec0.chunk.js",
+    "static/css/main.d5de3d71.chunk.css",
+    "static/js/main.065048f8.chunk.js"
   ]
 }
