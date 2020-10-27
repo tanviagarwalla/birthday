@@ -15,7 +15,7 @@ import Stats from './components/Stats'
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {ready: false, introIndex : 0, showProgressBar: false, progress: 0, showVideo: false, bgColor: 'white'};
+    this.state = {ready: false, introIndex : 0, showProgressBar: false, progress: 0, showVideo: false, bgColor: 'white', challengeIndex : 0, hideChallengeButtons: false};
   }
   
   handleReady = () => {
@@ -34,6 +34,16 @@ class App extends Component {
     }
   }
 
+  handleChallengeComplete = () => {
+    let index = this.state.challengeIndex;
+    let progress = this.state.progress;
+    if (index  < 3) {
+      this.setState({challengeIndex : index + 1, progress : progress + 25});
+    } else {
+      this.setState({challengeIndex : index + 1, hideChallengeButtons : true, progress : progress + 25})
+    }
+  }
+
   setBackgroundColor = (color) => {
     this.setState({bgColor: 'gradient1'});
   }
@@ -42,7 +52,12 @@ class App extends Component {
     return (
       <div>
         <Grid>
-          <Grid.Row only="computer tablet" className={this.state.bgColor}>
+          <Grid.Row only="mobile tablet">
+            <h2 className="mobile">This website is only meant to be used on computer screens. Responsive design is a feature enhancement we are considering for future releases. Thank you for your patience!</h2>
+          </Grid.Row>
+        </Grid>
+        <Grid>
+          <Grid.Row only="computer" className={this.state.bgColor}>
           <div className="body">
             {/* Welcome message */}
             {!this.state.ready && <Welcome handleClick={this.handleReady}/>}
@@ -51,12 +66,12 @@ class App extends Component {
             {this.state.showIntro && <video playsInline autoPlay muted loop id="bgvid" src={video}/>}
 
             {this.state.ready && <Grid columns="equal">
-            {this.state.showIntro && <Grid.Row centered>
+              {this.state.showIntro && <Grid.Row centered>
                  <Intro index={this.state.introIndex} clickHandler={this.handleIntroClicks} />
                 
               </Grid.Row>}
               {!this.state.showIntro && <Grid.Row>
-                <Challenge />
+                <Challenge index={this.state.challengeIndex} clickHandler = {this.handleChallengeComplete} hideButtons = {this.state.hideChallengeButtons} />
               </Grid.Row>}
               <Grid.Row>
                 {!this.state.showIntro && this.state.ready && <div className="stats-bar">
@@ -74,11 +89,6 @@ class App extends Component {
               </Grid.Row>
             </Grid>}
           </div>
-          </Grid.Row>
-        </Grid>
-        <Grid>
-          <Grid.Row only="mobile">
-            <h2 className="mobile">This website is only meant to be used on computer screens. At worst, tablets</h2>
           </Grid.Row>
         </Grid>
       </div>

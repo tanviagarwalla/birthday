@@ -64,7 +64,7 @@ video {
 }
 
 .mobile {
-  margin: '20px';
+  margin: 50px;
 }
 
 .intro {
@@ -109,11 +109,11 @@ video {
 
 .stats-bar {
   position: fixed;
-  background-color: #778da9;
+  background-color: #81b29a;
   width: 95%;
   height: 140px;
   left: 2.5%;
-  border-radius: 12px;
+  border-radius: 5px;
 }
 
 .ui.statistics.stats:first-child {
@@ -127,5 +127,38 @@ video {
 }
 
 .ui.card.profile-card>.content {
-  background: #E0E1DD;
+  background: white;
+}
+
+.challenge-holder {
+  background-color: white;
+  height: 67vh;
+  margin-top: 40px;
+  border-radius: 5px;
+  margin-right: 4%;
+  padding: 55px;
+}
+
+.challenge-headers>h3, .challenge-headers>h2 {
+  margin:0px;
+
+}
+
+.challenge-description {
+  font-size: 17px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.challenge-buttons>.ui.button {
+  margin-right: 20px;
+}
+
+.challenge-buttons>.ui.basic.red.button {
+  box-shadow: 0 0 0 1px #e07a5f inset!important;
+  color: #e07a5f!important;
+}
+
+.ui.card>.content>.header {
+  color: #e07a5f!important;
 }

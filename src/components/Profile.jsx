@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, List } from 'semantic-ui-react'
+import { Card, List } from 'semantic-ui-react'
 import img from '../media/profilepix.jpeg'
 
 const extra = (
