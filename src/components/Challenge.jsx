@@ -3,6 +3,7 @@ import { Button, Grid, Popup } from 'semantic-ui-react'
 import '../App.css';
 import '../vov.min.css';
 import Profile from './Profile.jsx'
+import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
 class Challenge extends React.Component {
 
@@ -45,12 +46,23 @@ class Challenge extends React.Component {
             header: ["Challenge 1", "Challenge 2", "Challenge 3", "Challenge 4", "Congratulations!"]
         };
     }
+
+    renderTime = ({ remainingTime }) => {  
+        
+        const minutes = Math.floor(remainingTime / 60);
+        const seconds = remainingTime % 60;
+        return (
+            <div className="timer">
+                <div className="value">{`${minutes}:${seconds}`}</div>
+            </div>
+        );
+      };
     
     render() {
         return (
             <div className="challenge-container vov fade-in" style={{width: '100%'}}>
                 <Grid>
-                    <Grid.Row columns="equal">
+                    <Grid.Row>
                         <Grid.Column width={5}>
                             <Profile></Profile>
                         </Grid.Column>
@@ -73,6 +85,22 @@ class Challenge extends React.Component {
                                         </Button>
                                     } />
                                 </div>}
+                            </div>
+                        </Grid.Column>
+                        <Grid.Column width={4}>
+                            <div className="center timer-wrapper">
+                                <p> Time Remaining </p>
+                                <CountdownCircleTimer
+                                    onComplete={() => {
+                                    // do your stuff here
+                                    return [true, 1500] // repeat animation in 1.5 seconds
+                                    }}
+                                    isPlaying
+                                    duration={3600}
+                                    colors="#A30000"
+                                >
+                                    {this.renderTime}
+                                </CountdownCircleTimer>
                             </div>
                         </Grid.Column>
                     </Grid.Row>
