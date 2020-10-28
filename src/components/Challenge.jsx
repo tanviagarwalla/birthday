@@ -24,10 +24,10 @@ class Challenge extends React.Component {
                     Send a video recording to Agent Agarwalla.
                 </p>, 
                 <p className="challenge-description">
-                    That was not your best performance so I hope you will do better in the next few challenges<br/><br/> 
+                    That was not your best performance so I hope you will do better in the next few challenges.<br/><br/> 
                     As an Avenger,  you must have brain with brawn. <br/><br/>
-                    Challenge TBD <br/><br/>
-                    Send a video recording to Agent Agarwalla.
+                    List your ten favorite people in the world in order. Be smart and cautious while creating this list. <br/><br/>
+                    Send the list to Agent Agarwalla.
                 </p>, 
                 <p className="challenge-description">
                     Finally, your last challenge.<br/><br/> 
@@ -89,7 +89,7 @@ class Challenge extends React.Component {
                         </Grid.Column>
                         <Grid.Column width={4}>
                             <div className="center timer-wrapper">
-                                <p> Time Remaining </p>
+                                <h3 className="time-remaining"> Time Remaining </h3>
                                 <CountdownCircleTimer
                                     onComplete={() => {
                                     // do your stuff here
